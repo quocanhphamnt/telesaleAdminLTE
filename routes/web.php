@@ -21,30 +21,12 @@ Route::get('register', function () {
 Route::get('/', function () {
     return view('index');
 });
-Route::get('index', function () {
+Route::get('trangchu', function () {
     return view('index');
 });
 Route::get('customer', function () {
-    return view('dashboard.customer');
+    return view('khachhang.danhsach');
 });
-Route::get('history', function () {
-    return view('dashboard.history');
-});
-Route::get('graph-representation', function () {
-    return view('dashboard.graph');
-});
-Route::get('calendar', function () {
-    return view('calendar.calendar');
-});
-Route::get('mail', function () {
-    return view('mail.mail');
-});
-Route::get('employee', function () {
-    return view('management.employee');
-});
-Route::get('group', function () {
-    return view('management.group');
-});
-Route::get('cusAssign', function () {
-    return view('management.cusAssign');
+Route::get('dialog', function () {
+    return view('khachhang.lichsucuocgoi');
 });

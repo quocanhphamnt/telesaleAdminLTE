@@ -21,7 +21,7 @@ class CreateNhanviensTable extends Migration
             $table->string('sdt')->nullable();
             $table->string('khuvuc')->nullable();
             $table->string('diachi')->nullable();
-            $table->unsignedBigInteger('id_qh');
+            $table->unsignedBigInteger('id_qh')->nullable();
             $table->timestamps();
 
             $table->foreign('id_qh')->references('id')->on('quyenhans');

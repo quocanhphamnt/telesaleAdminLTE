@@ -8,13 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Customers</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-              <li class="breadcrumb-item active">Customers</li>
-            </ol>
+            <h1 class="m-0">Dashboard</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -27,10 +21,10 @@
         <!-- Info boxes -->
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
-            <a class="info-box" href="javascript:;">
+            <a class="info-box text-reset" href="javascript:;">
               <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-info-circle"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Customers haven't called</span>
+                <span class="info-box-text">Khách hàng CHƯA GỌI</span>
                 <span class="info-box-number">41,410</span>
               </div>
               <!-- /.info-box-content -->
@@ -39,10 +33,10 @@
           </div>
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
-            <a class="info-box mb-3" href="javascript:;">
+            <a class="info-box text-reset" href="javascript:;">
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-phone"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Customers called</span>
+                <span class="info-box-text">Khách hàng ĐÃ GỌI</span>
                 <span class="info-box-number">41,410</span>
               </div>
               <!-- /.info-box-content -->
@@ -51,10 +45,10 @@
           </div>
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
-            <a class="info-box mb-3" href="javascript:;">
+            <a class="info-box text-reset" href="javascript:;">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-calendar-alt"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Schedule customers</span>
+                <span class="info-box-text">Khách hàng ĐẶT HẸN</span>
                 <span class="info-box-number">760</span>
               </div>
               <!-- /.info-box-content -->
@@ -63,10 +57,10 @@
           </div>
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
-            <a class="info-box mb-3" href="javascript:;">
+            <a class="info-box text-reset" href="javascript:;">
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-thumbs-up"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Contracted</span>
+                <span class="info-box-text">Thành công</span>
                 <span class="info-box-number">100</span>
               </div>
               <!-- /.info-box-content -->
@@ -81,7 +75,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Weekly Recap Report</h5>
+                <h5 class="card-title">Báo cáo tuần</h5>
 
                 <div class="card-tools">
                   <div class="btn-group">
@@ -89,9 +83,9 @@
                       <i class="fas fa-wrench"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
-                      <a href="javascript:;" class="dropdown-item">Daily</a>
-                      <a href="javascript:;" class="dropdown-item">Weekly</a>
-                      <a href="javascript:;" class="dropdown-item">Monthly</a>
+                      <a href="javascript:;" class="dropdown-item">Ngày</a>
+                      <a href="javascript:;" class="dropdown-item">Tuần</a>
+                      <a href="javascript:;" class="dropdown-item">Tháng</a>
                     </div>
                   </div>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -104,7 +98,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <p class="text-center">
-                      <strong>1 Jan, 2014 - 30 Jul, 2014</strong>
+                      <strong>01/01/2023 - 07/01/2023</strong>
                     </p>
 
                     <div class="chart">
@@ -124,7 +118,7 @@
                     <div class="description-block border-right">
                       <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 17%</span>
                       <h5 class="description-header">35,210</h5>
-                      <span class="description-text">PENDING</span>
+                      <span class="description-text">Chưa gọi</span>
                     </div>
                     <!-- /.description-block -->
                     </div>
@@ -133,7 +127,7 @@
                     <div class="description-block border-right">
                       <span class="description-percentage text-warning"><i class="fas fa-caret-left"></i> 0%</span>
                       <h5 class="description-header">10,390</h5>
-                      <span class="description-text">Called</span>
+                      <span class="description-text">Đã gọi</span>
                     </div>
                     <!-- /.description-block -->
                     </div>
@@ -142,7 +136,7 @@
                     <div class="description-block border-right">
                       <span class="description-percentage text-success"><i class="fas fa-caret-up"></i> 20%</span>
                       <h5 class="description-header">24,813</h5>
-                      <span class="description-text">Schedule</span>
+                      <span class="description-text">Hẹn</span>
                     </div>
                     <!-- /.description-block -->
                     </div>
@@ -151,7 +145,7 @@
                     <div class="description-block">
                       <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span>
                       <h5 class="description-header">1,200</h5>
-                      <span class="description-text">Contracted</span>
+                      <span class="description-text">Thành công</span>
                     </div>
                     <!-- /.description-block -->
                     </div>
@@ -173,7 +167,7 @@
             <!-- MAP & BOX PANE -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Region Report</h3>
+                <h3 class="card-title">Báo cáo khu vực</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -204,7 +198,7 @@
               <span class="info-box-icon"><i class="fas fa-tag"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Provinces</span>
+                <span class="info-box-text">Tỉnh thành</span>
                 <span class="info-box-number">64</span>
               </div>
               <!-- /.info-box-content -->
@@ -214,7 +208,7 @@
               <span class="info-box-icon"><i class="far fa-heart"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Customers</span>
+                <span class="info-box-text">Số lượng khách hàng</span>
                 <span class="info-box-number">92,050</span>
               </div>
               <!-- /.info-box-content -->
@@ -222,7 +216,7 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Region</h3>
+                <h3 class="card-title">Khu vực</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -242,9 +236,9 @@
                   <!-- /.col -->
                   <div class="col-md-4">
                     <ul class="chart-legend clearfix">
-                      <li><i class="far fa-circle text-danger"></i>North</li>
-                      <li><i class="far fa-circle text-success"></i>Center</li>
-                      <li><i class="far fa-circle text-warning"></i> South</li>
+                      <li><i class="far fa-circle text-danger"></i>Miền Bắc</li>
+                      <li><i class="far fa-circle text-success"></i>Miền Trung</li>
+                      <li><i class="far fa-circle text-warning"></i> Miền Nam</li>
                     </ul>
                   </div>
                   <!-- /.col -->
@@ -256,7 +250,7 @@
                 <ul class="nav nav-pills flex-column">
                   <li class="nav-item">
                     <a href="javascript:;" class="nav-link">
-                      North
+                      Miền Bắc
                       <span class="float-right text-danger">
                         <i class="fas fa-arrow-down text-sm"></i>
                         12%</span>
@@ -264,7 +258,7 @@
                   </li>
                   <li class="nav-item">
                     <a href="javascript:;" class="nav-link">
-                      Center
+                      Miền Trung
                       <span class="float-right text-success">
                         <i class="fas fa-arrow-up text-sm"></i> 4%
                       </span>
@@ -272,7 +266,7 @@
                   </li>
                   <li class="nav-item">
                     <a href="javascript:;" class="nav-link">
-                      South
+                      Miền Nam
                       <span class="float-right text-warning">
                         <i class="fas fa-arrow-left text-sm"></i> 0%
                       </span>
@@ -288,7 +282,7 @@
           <div class="col-sm-6">
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">Region List</h3>
+                <h3 class="card-title">Danh sách tỉnh</h3>
 
                 <div class="card-tools">
                   <div class="btn-group">
@@ -342,7 +336,7 @@
                           </div>
                         </div>
                         <div class="card-footer">
-                          <button class="btn btn-info float-right">Filter</button>
+                          <button class="btn btn-info float-right">Lọc</button>
                         </div>
                       </div>
                     </div>
@@ -354,15 +348,15 @@
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
                       <a href="javascript:;" class="dropdown-item">
                         <i class="fas fa-user-plus"></i>
-                        Add New
+                        Thêm mới
                       </a>
                       <a href="javascript:;" class="dropdown-item">
                         <i class="fas fa-upload"></i>
-                        Export to Excel
+                        Xuất ra Excel
                       </a>
                       <a href="javascript:;" class="dropdown-item">
                         <i class="fas fa-download"></i>
-                        Import from Excel
+                        Nhập từ Excel
                       </a>
                     </div>
                   </div>
@@ -377,12 +371,12 @@
                   <table class="table m-0">
                     <thead>
                       <tr>
-                        <th>Name
+                        <th>Tỉnh
                           <button class="btn btn-tool">
                             <i class="fas fa-minus"></i>
                           </button>
                         </th>
-                        <th>Quantity
+                        <th>Số lượng khách
                           <button class="btn btn-tool">
                             <i class="fas fa-minus"></i>
                           </button>
@@ -433,7 +427,7 @@
                   <i class="fas fa-chevron-left"></i>
                   <i class="fas fa-chevron-left"></i>
                 </a>
-                <span>Page 1/30</span>
+                <span>Trang 1/30</span>
                 <a href="javascript:;" class="btn btn-sm btn-secondary float-right">
                   <i class="fas fa-chevron-right"></i>
                   <i class="fas fa-chevron-right"></i>
@@ -452,7 +446,7 @@
             <!-- DIRECT CHAT -->
             <div class="card direct-chat direct-chat-info">
               <div class="card-header">
-                <h3 class="card-title">Direct Chat</h3>
+                <h3 class="card-title">Chat</h3>
 
                 <div class="card-tools">
                   <span title="3 New Messages" class="badge badge-warning">3</span>
@@ -654,7 +648,7 @@
             <!-- USERS LIST -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Group Members</h3>
+                <h3 class="card-title">Thành viên nhóm</h3>
 
                 <div class="card-tools">
                   <span class="badge badge-danger">8 New Members</span>
@@ -727,7 +721,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer text-center">
-                <a href="javascript:;">View All Members</a>
+                <a href="javascript:;">Xem tất cả</a>
               </div>
               <!-- /.card-footer -->
             </div>
@@ -742,7 +736,7 @@
             <!-- TABLE: LATEST ORDERS -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">Customer List</h3>
+                <h3 class="card-title">Danh sách khách hàng</h3>
 
                 <div class="card-tools">
                   <div class="btn-group">
@@ -796,7 +790,7 @@
                           </div>
                         </div>
                         <div class="card-footer">
-                          <button class="btn btn-info float-right">Filter</button>
+                          <button class="btn btn-info float-right">Lọc</button>
                         </div>
                       </div>
                     </div>
@@ -808,15 +802,15 @@
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
                       <a href="javascript:;" class="dropdown-item">
                         <i class="fas fa-user-plus"></i>
-                        Add New
+                        Thêm mới
                       </a>
                       <a href="javascript:;" class="dropdown-item">
                         <i class="fas fa-upload"></i>
-                        Export to Excel
+                        Xuất ra Excel
                       </a>
                       <a href="javascript:;" class="dropdown-item">
                         <i class="fas fa-download"></i>
-                        Import from Excel
+                        Nhập từ Excel
                       </a>
                     </div>
                   </div>
@@ -831,7 +825,7 @@
                   <table class="table m-0">
                     <thead>
                       <tr>
-                        <th>Name
+                        <th>Họ và Tên
                           <button class="btn btn-tool">
                             <i class="fas fa-minus"></i>
                           </button>
@@ -841,17 +835,17 @@
                             <i class="fas fa-minus"></i>
                           </button>
                         </th>
-                        <th>Phone
+                        <th>Số điện thoại
                           <button class="btn btn-tool">
                             <i class="fas fa-minus"></i>
                           </button>
                         </th>
-                        <th>Group
+                        <th>Nhóm
                           <button class="btn btn-tool">
                             <i class="fas fa-minus"></i>
                           </button>
                         </th>
-                        <th>Status
+                        <th>Trạng thái
                           <button class="btn btn-tool">
                             <i class="fas fa-minus"></i>
                           </button>
@@ -863,50 +857,50 @@
                         <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
                         <td>abcxyz1@gmail.com</td>
                         <td>0123456xx1</td>
-                        <td>Group A</td>
-                        <td><span class="badge badge-success">Called</span></td>
+                        <td>Nhóm A</td>
+                        <td><span class="badge badge-success">Đã gọi</span></td>
                       </tr>
                       <tr>
                         <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
                         <td>abcxyz2@gmail.com</td>
                         <td>0123456xx2</td>
-                        <td>Group B</td>
-                        <td><span class="badge badge-secondary">Pending</span></td>
+                        <td>Nhóm B</td>
+                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
                       </tr>
                       <tr>
                         <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
                         <td>abcxyz3@gmail.com</td>
                         <td>0123456xx3</td>
-                        <td>Group C</td>
-                        <td><span class="badge badge-info">Schedule</span></td>
+                        <td>Nhóm C</td>
+                        <td><span class="badge badge-info">Hẹn</span></td>
                       </tr>
                       <tr>
                         <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
                         <td>abcxyz1@gmail.com</td>
                         <td>0123456xx1</td>
-                        <td>Group A</td>
-                        <td><span class="badge badge-success">Called</span></td>
+                        <td>Nhóm A</td>
+                        <td><span class="badge badge-success">Đã gọi</span></td>
                       </tr>
                       <tr>
                         <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
                         <td>abcxyz2@gmail.com</td>
                         <td>0123456xx2</td>
-                        <td>Group B</td>
-                        <td><span class="badge badge-secondary">Pending</span></td>
+                        <td>Nhóm B</td>
+                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
                       </tr>
                       <tr>
                         <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
                         <td>abcxyz3@gmail.com</td>
                         <td>0123456xx3</td>
-                        <td>Group C</td>
-                        <td><span class="badge badge-info">Schedule</span></td>
+                        <td>Nhóm C</td>
+                        <td><span class="badge badge-info">Hẹn</span></td>
                       </tr>
                       <tr>
                         <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
                         <td>abcxyz3@gmail.com</td>
                         <td>0123456xx3</td>
-                        <td>Group C</td>
-                        <td><span class="badge badge-warning">Contracted</span></td>
+                        <td>Nhóm C</td>
+                        <td><span class="badge badge-warning">Thành công</span></td>
                       </tr>
                     </tbody>
                   </table>
@@ -919,7 +913,7 @@
                   <i class="fas fa-chevron-left"></i>
                   <i class="fas fa-chevron-left"></i>
                 </a>
-                <span>Page 1/30</span>
+                <span>Trang 1/30</span>
                 <a href="javascript:;" class="btn btn-sm btn-secondary float-right">
                   <i class="fas fa-chevron-right"></i>
                   <i class="fas fa-chevron-right"></i>
@@ -938,7 +932,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header justify-content-center">
-              <h4 class="modal-title">Details</h4>
+              <h4 class="modal-title">Chi tiết</h4>
             </div>
             <div class="modal-body">
               <div class="row">
@@ -949,12 +943,12 @@
                   </div>
                   <div class="row justify-content-center">
                     <span class="badge badge-danger mx-1">Admin</span>
-                    <span class="badge badge-warning mx-1">Leader</span>
-                    <span class="badge badge-success mx-1">Employee</span>
+                    <span class="badge badge-warning mx-1">Trưởng phòng</span>
+                    <span class="badge badge-success mx-1">Nhân viên</span>
                   </div>
                   <div class="row mt-2 justify-content-center">
-                    <button class="btn btn-success mx-1 toastsPhone"><i class="fas fa-phone"></i> Call</button>
-                    <button class="btn btn-success mx-1 swalDefaultSuccess"><i class="fas fa-comments"></i> Message</button>
+                    <button class="btn btn-success mx-1 toastsPhone"><i class="fas fa-phone"></i> Gọi</button>
+                    <button class="btn btn-success mx-1 swalDefaultSuccess"><i class="fas fa-comments"></i> Nhắn tin</button>
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -1049,9 +1043,9 @@
               </div>
             </div>
             <div class="modal-footer justify-content-between">
-              <button class="btn btn-default" data-dismiss="modal">Close</button>
-              <button class="btn btn-primary swalDefaultSuccess">Save changes</button>
-              <button class="btn btn-danger swalDefaultError" data-toggle="modal" data-target="#modal-warning">Delete</button>
+              <button class="btn btn-default" data-dismiss="modal">Đóng</button>
+              <button class="btn btn-primary swalDefaultSuccess">Lưu thay đổi</button>
+              <button class="btn btn-danger swalDefaultError" data-toggle="modal" data-target="#modal-warning">Xóa</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -1064,10 +1058,10 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header bg-warning justify-content-center">
-              <h4 class="modal-title">Warning</h4>
+              <h4 class="modal-title">Cảnh báo</h4>
             </div>
             <div class="modal-body text-center">
-              <p>Really want to Delete?</p>
+              <p>Chắc chắn xóa điều này?</p>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
@@ -1095,12 +1089,12 @@
                   </div>
                   <div class="row justify-content-center">
                     <span class="badge badge-danger mx-1">Admin</span>
-                    <span class="badge badge-warning mx-1">Leader</span>
-                    <span class="badge badge-success mx-1">Employee</span>
+                    <span class="badge badge-warning mx-1">Trưởng phòng</span>
+                    <span class="badge badge-success mx-1">Nhân viên</span>
                   </div>
                   <div class="row mt-2 justify-content-center">
-                    <button class="btn btn-success mx-1 toastsPhone"><i class="fas fa-phone"></i> Call</button>
-                    <button class="btn btn-success mx-1"><i class="fas fa-comments"></i> Message</button>
+                    <button class="btn btn-success mx-1 toastsPhone"><i class="fas fa-phone"></i> Gọi</button>
+                    <button class="btn btn-success mx-1"><i class="fas fa-comments"></i> Nhắn tin</button>
                   </div>
                 </div>
               </div>
