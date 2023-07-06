@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ghichu extends Model
+class Group extends Model
 {
     use HasFactory;
 
-    protected $table = 'ghichus';
+    protected $table = 'groups';
     protected $fillable = [
-        'ten_gc',
-        'noidung',
-        'ten_nv',
-        'id_nv',
-        'id_kh',
+        'name',
+        'describe',
+        'id_user',
     ];
 }

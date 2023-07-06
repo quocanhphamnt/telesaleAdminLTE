@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNhomsTable extends Migration
+class CreateGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateNhomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('nhoms', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_nhom');
-            $table->string('mota')->nullable();
-            $table->unsignedBigInteger('id_nv')->nullable();
+            $table->string('name');
+            $table->string('describe')->nullable();
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateNhomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhoms');
+        Schema::dropIfExists('groups');
     }
 }

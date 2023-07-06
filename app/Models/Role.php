@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DsKh extends Model
+class Role extends Model
 {
     use HasFactory;
 
-    protected $table = 'ds_khs';
+    protected $table = 'roles';
     protected $fillable = [
-        'id_nv',
-        'id_kh',
+        'name',
+        'level',
     ];
 }

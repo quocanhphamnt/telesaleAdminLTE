@@ -5,17 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lscuocgoi extends Model
+class User_Group extends Model
 {
     use HasFactory;
 
-    protected $table = 'lscuocgois';
+    protected $table = 'user__groups';
     protected $fillable = [
-        'ten_nv',
-        'ngay',
-        'thoigiangoi',
-        'id_fb',
-        'id_nv',
-        'id_kh',
+        'id_user',
+        'id_group',
     ];
 }
