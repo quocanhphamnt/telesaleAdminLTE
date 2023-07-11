@@ -20,11 +20,13 @@ class CreateCustomersTable extends Migration
             $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->string('describe')->nullable();
-            $table->string('region')->nullable();
+            $table->unsignedBigInteger('region')->nullable();
+            $table->unsignedBigInteger('gender')->nullable();
             $table->unsignedBigInteger('id_group')->nullable();
             $table->unsignedBigInteger('id_status')->nullable();
             $table->timestamps();
 
+            $table->foreign('region')->references('id')->on('regions');
             $table->foreign('id_group')->references('id')->on('groups');
             $table->foreign('id_status')->references('id')->on('statuses');
         });

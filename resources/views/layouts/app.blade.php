@@ -100,7 +100,7 @@
                         with font-awesome or any other icon font library -->
                     <li class="nav-item {{ (Request::is('khachhang') || Request::is('khachhang/*') ? 'menu-open' : '') }}">
                         <a href="javascript:;" class="nav-link {{ (Request::is('khachhang') || Request::is('khachhang/*') ? 'active' : '') }}">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <i class="nav-icon fas fa-user"></i>
                             <p>
                                 Khách hàng
                                 <i class="right fas fa-angle-left"></i>
@@ -111,18 +111,6 @@
                                 <a href="{{ route('customers') }}" class="nav-link {{ Route::is('customers') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Danh sách</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('dialog') }}" class="nav-link {{ Route::is('dialog') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Lịch sử cuộc gọi</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="graph-representation" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Biểu đồ biểu thị</p>
                                 </a>
                             </li>
                         </ul>

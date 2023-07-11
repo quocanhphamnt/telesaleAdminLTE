@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,9 +23,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/khachhang/danhsach', function() {
-    return view('khachhang.danhsach');
-})->name('customers');
+Route::get('/khachhang/danhsach', [CustomerController::class, 'index'])->name('customers');
+Route::post('/khachhang/addCustomer',[CustomerController::class, 'addCustomer']);
+Route::get('/khachhang/detailCustomer/{id}',[CustomerController::class, 'detailCustomer']);
+Route::put('/khachhang/updateCustomer/{id}',[CustomerController::class, 'updateCustomer']);
+Route::delete('/khachhang/deleteCustomer/{id}',[CustomerController::class, 'deleteCustomer']);
 
 Route::get('/khachhang/lichsucuocgoi', function() {
     return view('khachhang.lichsucuocgoi');

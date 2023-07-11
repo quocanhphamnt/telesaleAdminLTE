@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@extends('khachhang.script')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -33,31 +32,28 @@
                                 <div class="col-md-6">
                                     <div class="margin float-right">
                                         <div class="btn-group mb-1">
-                                            <button type="button" class="btn btn-info">Nhóm khách hàng</button>
-                                            <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown"></button>
-                                            <div class="dropdown-menu" role="menu">
-                                                <a class="dropdown-item" href="javascript:;">Nhóm A</a>
-                                                <a class="dropdown-item" href="javascript:;">Nhóm B</a>
-                                                <a class="dropdown-item" href="javascript:;">Nhóm C</a>
-                                            </div>
+                                            <select class="form-control filter btn btn-info" data-column-index='3'>
+                                                <option value="" selected>Nhóm khách hàng</option>
+                                                @foreach ($group as $item)
+                                                    <option value="{{$item->name}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="btn-group mb-1">
-                                            <button type="button" class="btn btn-success">Người phụ trách</button>
-                                            <button type="button" class="btn btn-success dropdown-toggle dropdown-icon" data-toggle="dropdown"></button>
-                                            <div class="dropdown-menu" role="menu">
-                                                <a class="dropdown-item" href="javascript:;">Nhân viên 1</a>
-                                                <a class="dropdown-item" href="javascript:;">Nhân viên 2</a>
-                                                <a class="dropdown-item" href="javascript:;">Nhân viên 3</a>
-                                            </div>
+                                            <select class="form-control filter btn btn-success" data-column-index='4'>
+                                                <option value="" selected>Người phụ trách</option>
+                                                @foreach ($user as $item)
+                                                    <option value="{{$item->name}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="btn-group mb-1">
-                                            <button type="button" class="btn btn-warning">Trạng thái</button>
-                                            <button type="button" class="btn btn-warning dropdown-toggle dropdown-icon" data-toggle="dropdown"></button>
-                                            <div class="dropdown-menu" role="menu">
-                                                <a class="dropdown-item" href="javascript:;">Đã gọi</a>
-                                                <a class="dropdown-item" href="javascript:;">Không trả lời</a>
-                                                <a class="dropdown-item" href="javascript:;">Đặt hẹn</a>
-                                            </div>
+                                            <select class="form-control filter btn btn-default" data-column-index='5'>
+                                                <option value="" selected>Trạng thái</option>
+                                                @foreach ($status as $item)
+                                                    <option value="{{$item->name}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +76,7 @@
                             <h3 class="card-title">Danh sách tổng</h3>
                         </div>
                         <div class="card-body">
-                            <table id="tongkhachhang" class="table table-bordered table-hover">
+                            <table id="customerList" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>Tên khách hàng</th>
@@ -90,72 +86,33 @@
                                         <th>Người phụ trách</th>
                                         <th>Trạng thái</th>
                                         <th>Ngày tạo</th>
+                                        <th data-orderable="false"></th>
+                                        <th data-orderable="false"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
-                                        <td>abcxyz1@gmail.com</td>
-                                        <td>0123456xx1</td>
-                                        <td>Group A</td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-success">Đã gọi</span></td>
-                                        <td>03/01/2023</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
-                                        <td>abcxyz2@gmail.com</td>
-                                        <td>0123456xx2</td>
-                                        <td>Group B</td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
-                                        <td>03/01/2023</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>abcxyz3@gmail.com</td>
-                                        <td>0123456xx3</td>
-                                        <td>Group C</td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-danger">Không bắt máy</span></td>
-                                        <td>03/01/2023</td>
-                                    </tr>
+                                    @foreach ($customer as $item)
                                         <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
-                                        <td>abcxyz1@gmail.com</td>
-                                        <td>0123456xx1</td>
-                                        <td>Group A</td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-success">Đã gọi</span></td>
-                                        <td>03/01/2023</td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
-                                        <td>abcxyz2@gmail.com</td>
-                                        <td>0123456xx2</td>
-                                        <td>Group B</td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
-                                        <td>03/01/2023</td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>abcxyz3@gmail.com</td>
-                                        <td>0123456xx3</td>
-                                        <td>Group C</td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-danger">Không bắt máy</span></td>
-                                        <td>03/01/2023</td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>abcxyz3@gmail.com</td>
-                                        <td>0123456xx3</td>
-                                        <td>Group C</td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-info">Đặt hẹn</span></td>
-                                        <td>03/01/2023</td>
-                                    </tr>
+                                            <td>{{$item->name}}</td>
+                                            <td>{{$item->email}}</td>
+                                            <td>{{$item->phone}}</td>
+                                            <td>{{$item->group}}</td>
+                                            <td>{{$item->user}}</td>
+                                            <td>{{$item->status}}</td>
+                                            <td>{{$item->created_at}}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-tool editor" value="{{$item->id}}" data-toggle="modal" data-target="#modal-detail" data-id="{{$loop->index}}">
+                                                    <i class="fas fa-edit"></i>
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-success mx-1 toastsPhone" value="{{$item->id}}">
+                                                    <i class="fas fa-phone"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->
@@ -164,197 +121,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <!-- TABLE -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Nhóm A</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Tên khách hàng</th>
-                                        <th>Người phụ trách</th>
-                                        <th>Trạng thái</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-success">Đã gọi</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-danger">Không bắt máy</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-success">Đã gọi</span></td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-danger">Không bắt máy</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-info">Đặt hẹn</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-4">
-                    <!-- TABLE -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Nhóm B</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Tên khách hàng</th>
-                                        <th>Người phụ trách</th>
-                                        <th>Trạng thái</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-success">Đã gọi</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-danger">Không bắt máy</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-success">Đã gọi</span></td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-danger">Không bắt máy</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-info">Đặt hẹn</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-4">
-                    <!-- TABLE -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Nhóm C</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Tên khách hàng</th>
-                                        <th>Người phụ trách</th>
-                                        <th>Trạng thái</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-success">Đã gọi</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-danger">Không bắt máy</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Alexander Pierce</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-success">Đã gọi</span></td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Norman</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-secondary">Chưa gọi</span></td>
-                                    </tr>
-                                        <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-danger">Không bắt máy</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#modal-detail">Jane</a></td>
-                                        <td>Tên nhân viên</td>
-                                        <td><span class="badge badge-info">Đặt hẹn</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
         </div><!--/. container-fluid -->
 
         <div class="modal fade" id="modal-new">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <form class="modal-content" id="addCustomer">
                     <div class="modal-header">
                         <h4 class="modal-title">Thêm mới</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -367,40 +138,40 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Họ và Tên</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="addName">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="example@email.com">
+                                    <input type="text" class="form-control" id="addEmail" placeholder="example@email.com">
                                     <label>Số điện thoại</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="addPhone">
                                     <label>Địa chỉ</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="addAddress">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>Giới tính</label>
-                                    <select class="form-control">
-                                        <option>Nam</option>
-                                        <option>Nữ</option>
+                                    <select class="form-control" id="addGender">
+                                        <option value="1">Nam</option>
+                                        <option value="2">Nữ</option>
                                     </select>
                                     <label>Nhóm</label>
-                                    <select class="form-control">
-                                        <option>Group A</option>
-                                        <option>Group B</option>
-                                        <option>Group C</option>
+                                    <select class="form-control" id="addGroup">
+                                        @foreach ($group as $item)
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
                                     </select>
                                     <label>Người phụ trách</label>
-                                    <select class="form-control">
-                                        <option>Nhân viên 1</option>
-                                        <option>Nhân viên 2</option>
-                                        <option>Nhân viên 3</option>
+                                    <select class="form-control" id="addUser">
+                                        @foreach ($user as $item)
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
                                     </select>
                                     <label>Tỉnh thành</label>
-                                    <select class="form-control">
-                                        <option>Hà Nội</option>
-                                        <option>Hồ Chí Minh</option>
-                                        <option>Đà Nẵng</option>
+                                    <select class="form-control" id="addRegion">
+                                        @foreach ($region as $item)
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -410,16 +181,23 @@
                                 <!-- textarea -->
                                 <div class="form-group">
                                     <label>Mô tả</label>
-                                    <textarea class="form-control" rows="4"></textarea>
+                                    <textarea class="form-control" rows="4" id="addDescribe"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="message">
+
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        <button class="btn btn-primary swalDefaultSuccess">Lưu</button>
+                        <button class="btn btn-primary" type="submit">Lưu</button>
                     </div>
-                </div>
+                </form>
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
@@ -454,60 +232,62 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="tab-content" id="custom-tabs-two-tabContent">
-                                            <div class="tab-pane fade show active" id="detail-profile" role="tabpanel" aria-labelledby="detail-profile-tab">
+                                            <form class="tab-pane fade show active" id="detail-profile" role="tabpanel" aria-labelledby="detail-profile-tab">
                                                 <div class="row">
-                                                    <div class="col-sm-4 text-center">
-                                                        <img src="{{url('resources/img/user2-160x160.jpg')}}" alt="User Image" class="rounded-circle">
-                                                        <div class="row mt-2 justify-content-center">
-                                                            <label>Alexander Pierce</label>
-                                                        </div>
-                                                        <div class="row justify-content-center">
-                                                            <span class="badge badge-success mx-1">Đã gọi</span>
-                                                        </div>
-                                                        <div class="row mt-2 justify-content-center">
-                                                            <button class="btn btn-success mx-1 toastsPhone"><i class="fas fa-phone"></i> Gọi</button>
-                                                            <button class="btn btn-success mx-1 swalDefaultSuccess"><i class="fas fa-comments"></i> Nhắn tin</button>
-                                                        </div>
-                                                    </div>
                                                     <div class="col-sm-4">
                                                         <!-- text input -->
                                                         <div class="form-group">
+                                                            <input type="hidden" class="form-control" id="detailID">
+                                                            <input type="hidden" class="form-control" id="detailRow">
                                                             <label>Tên khách hàng</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" class="form-control" id="detailName">
                                                             <label>Email</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" class="form-control" id="detailEmail">
                                                             <label>Số điện thoại</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" class="form-control" id="detailPhone">
                                                             <label>Địa chỉ</label>
-                                                            <input type="text" class="form-control">
+                                                            <input type="text" class="form-control" id="detailAddress">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <!-- text input -->
                                                         <div class="form-group">
                                                             <label>Giới tính</label>
-                                                            <select class="form-control">
-                                                                <option>Nam</option>
-                                                                <option>Nữ</option>
+                                                            <select class="form-control" id="detailGender">
+                                                                <option value="1">Nam</option>
+                                                                <option value="2">Nữ</option>
                                                             </select>
                                                             <label>Nhóm</label>
-                                                            <select class="form-control">
-                                                                <option>Group A</option>
-                                                                <option>Group B</option>
-                                                                <option>Group C</option>
+                                                            <select class="form-control" id="detailGroup">
+                                                                @foreach ($group as $item)
+                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                             <label>Người phụ trách</label>
-                                                            <select class="form-control">
-                                                                <option>Nhân viên 1</option>
-                                                                <option>Nhân viên 2</option>
-                                                                <option>Nhân viên 3</option>
+                                                            <select class="form-control" id="detailUser">
+                                                                @foreach ($user as $item)
+                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                             <label>Tỉnh thành</label>
-                                                            <select class="form-control">
-                                                                <option>Hà Nội</option>
-                                                                <option>Hồ Chí Minh</option>
-                                                                <option>Đà Nẵng</option>
+                                                            <select class="form-control" id="detailName"id="detailRegion">
+                                                                @foreach ($region as $item)
+                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                @endforeach
                                                             </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Trạng thái</label>
+                                                            <select class="form-control" id="detailStatus">
+                                                                @foreach ($status as $item)
+                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            <label>Ngày khởi tạo</label>
+                                                            <input type="text" class="form-control" id="detailDay">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -516,29 +296,22 @@
                                                         <!-- textarea -->
                                                         <div class="form-group">
                                                             <label>Mô tả</label>
-                                                            <textarea class="form-control" rows="4"></textarea>
+                                                            <textarea class="form-control" rows="4" id="detailDescribe"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <!-- text input -->
-                                                        <div class="form-group">
-                                                            <label>Trạng thái</label>
-                                                            <select class="form-control">
-                                                                <option>Đã gọi</option>
-                                                                <option>Không gọi được</option>
-                                                            </select>
-                                                            <label>Ngày khởi tạo</label>
-                                                            <input type="text" class="form-control">
+                                                        <div class="message">
+
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <button class="btn btn-danger swalDefaultError" data-toggle="modal" data-target="#modal-warning">Xóa</button>
-                                                        <button class="btn btn-primary float-right swalDefaultSuccess">Lưu thay đổi</button>
+                                                        <button class="btn btn-danger" id="deleteCustomer">Xóa</button>
+                                                        <button class="btn btn-primary float-right" type="submit">Lưu thay đổi</button>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </form>
                                             <div class="tab-pane fade" id="detail-dialog" role="tabpanel" aria-labelledby="detail-dialog-tab">
                                                 <div class="row">
                                                     <div class="col-12">
@@ -560,24 +333,6 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr>
-                                                                                <td>Nhân viên 1</td>
-                                                                                <td>Đã gọi</td>
-                                                                                <td>360s</td>
-                                                                                <td>9:24 01/04/2023</td>
-                                                                                <td>9:30 01/04/2023</td>
-                                                                                <td>File âm thanh</td>
-                                                                                <td>Khách hàng hẹn lại cuộc gọi sau</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>Nhân viên 1</td>
-                                                                                <td>Đã gọi</td>
-                                                                                <td>360s</td>
-                                                                                <td>9:24 01/04/2023</td>
-                                                                                <td>9:30 01/04/2023</td>
-                                                                                <td>File âm thanh</td>
-                                                                                <td>Khách hàng hẹn lại cuộc gọi sau</td>
-                                                                            </tr>
                                                                             <tr>
                                                                                 <td>Nhân viên 1</td>
                                                                                 <td>Đã gọi</td>
@@ -614,28 +369,205 @@
             <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-
-        <div class="modal fade" id="modal-warning">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header bg-warning justify-content-center">
-                        <h4 class="modal-title">Warning</h4>
-                    </div>
-                    <div class="modal-body text-center">
-                        <p>Really want to Delete?</p>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-warning swalDefaultSuccess">Yes</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
     </section>
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+@endsection
+
+@section('script')
+<script>
+$( document ).ready(function() {
+    var dtable = $('#customerList').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+    });
+
+    $(document).on('change', '.filter', function(e) {
+        e.preventDefault();
+        //clear global search values
+        dtable.search('');
+        $('.filter').each(function () {
+            var valueSelected = this.value;
+            if(this.value.length){
+                dtable.column($(this).data('columnIndex')).search(this.value);
+            } else {
+                dtable.column($(this).data('columnIndex')).search('');
+            }
+        });
+        dtable.draw();
+    });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $(document).on('submit', '#addCustomer', function(e) {
+        e.preventDefault();
+        var data = {
+            'name': $('#addName').val(),
+            'email': $('#addEmail').val(),
+            'phone': $('#addPhone').val(),
+            'address': $('#addAddress').val(),
+            'gender': $('#addGender').val(),
+            'group': $('#addGroup').val(),
+            'user': $('#addUser').val(),
+            'region': $('#addRegion').val(),
+            'describe': $('#addDescribe').val(),
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "addCustomer",
+            data: data,
+            dataType: "json",
+            error: function (response) {
+                console.log(response);
+            },
+            success: function (response) {
+                console.log(response);
+                if(response.status == 404) {
+                    $('#addCustomer .message').html('');
+                    $.each(response.errors, function (key, err_values) {
+                        $('#addCustomer .message').append('<p class="text-danger m-0 p-0">'+err_values+'</p>');
+                    });
+                } else {
+                    $('#modal-new').modal('hide');
+                    $('#addCustomer .message').html('');
+                    $('#addCustomer').find('input').val('');
+                    dtable.row.add([
+                        response.customer.name,
+                        response.customer.email,
+                        response.customer.phone,
+                        response.user.name,
+                        response.group.name,
+                        response.status.name,
+                        response.customer.created_at,
+                        '<button type="button" class="btn btn-tool editor" value="'+response.customer.id+'" data-toggle="modal" data-target="#modal-detail" data-id="'+dtable.rows().count()+'"><i class="fas fa-edit"></i>Edit</button>',
+                        '<button class="btn btn-success mx-1 toastsPhone" value="'+response.customer.id+'"><i class="fas fa-phone"></i></button>',
+                    ]).draw();
+                }
+            }
+        });
+    });
+
+    $(document).on('click', '.editor', function(e) {
+        e.preventDefault();
+        var id = $(this).val();
+        var attr = $(this).attr("data-id");
+
+        $.ajax({
+            type: "GET",
+            url: "detailCustomer/"+id,
+            error: function (response) {
+                console.log(response);
+            },
+            success: function (response) {
+                console.log(response);
+                if(response.status == 404) {
+
+                } else {
+                    $('#detailID').val(response.customer.id);
+                    $('#detailRow').val(attr);
+                    $('#detailName').val(response.customer.name);
+                    $('#detailEmail').val(response.customer.email);
+                    $('#detailPhone').val(response.customer.phone);
+                    $('#detailAddress').val(response.customer.address);
+                    $('#detailGender').children('option[value="'+response.customer.gender+'"]').prop('selected', true);
+                    $('#detailGroup').children('option[value="'+response.customer.id_group+'"]').prop('selected', true);
+                    $('#detailUser').children('option[value="'+response.user__customer.id_user+'"]').prop('selected', true);
+                    $('#detailRegion').children('option[value="'+response.customer.region+'"]').prop('selected', true);
+                    $('#detailStatus').children('option[value="'+response.customer.id_status+'"]').prop('selected', true);
+                    $('#detailDay').val(response.customer.created_at);
+                    $('#detailDescribe').val(response.customer.describe);
+                }
+            }
+        });
+    })
+
+    $(document).on('submit', '#detail-profile', function(e) {
+        e.preventDefault();
+        var id = $('#detailID').val();
+        var data = {
+            'name': $('#detailName').val(),
+            'email': $('#detailEmail').val(),
+            'phone': $('#detailPhone').val(),
+            'address': $('#detailAddress').val(),
+            'gender': $('#detailGender').val(),
+            'group': $('#detailGroup').val(),
+            'user': $('#detailUser').val(),
+            'region': $('#detailRegion').val(),
+            'status': $('#detailStatus').val(),
+            'describe': $('#detailDescribe').val(),
+        }
+
+        $.ajax({
+            type: "PUT",
+            url: "updateCustomer/"+id,
+            data: data,
+            dataType: "json",
+            error: function (response) {
+                console.log(response);
+            },
+            success: function (response) {
+                console.log(response);
+                if(response.status == 400) {
+                    $('#detail-profile .message').html('');
+                    $.each(response.errors, function (key, err_values) {
+                        $('#detail-profile .message').append('<p class="text-danger m-0 p-0">'+err_values+'</p>');
+                    });
+                } else if(response.status == 404) {
+                    $('#detail-profile .message').html('');
+                    $('#detail-profile .message').append('<p class="text-danger m-0 p-0">'+response.message+'</p>');
+                } else {
+                    $('#modal-detail').modal('hide');
+                    $('#detail-profile .message').html('');
+                    $('#detail-profile').find('input').val('');
+
+                    var attr = $('#detailRow').val();
+                    var temp = dtable.row(attr).data();
+                    temp[0] = response.customer.name;
+                    temp[1] = response.customer.email;
+                    temp[2] = response.customer.phone;
+                    temp[3] = response.group.name;
+                    temp[4] = response.user.name;
+                    temp[5] = response.status.name;
+                    temp[6] = response.customer.created_at;
+                    temp[7] = '<button type="button" class="btn btn-tool editor" value="'+response.customer.id+'" data-toggle="modal" data-target="#modal-detail" data-id="'+attr+'"><i class="fas fa-edit"></i>Edit</button>',
+                    temp[8] = '<button class="btn btn-success mx-1 toastsPhone" value="'+response.customer.id+'"><i class="fas fa-phone"></i></button>';
+                    dtable.row(attr).data(temp).draw(false);
+                }
+            }
+        });
+    });
+
+    $(document).on('click', '#deleteCustomer', function(e) {
+            e.preventDefault();
+            var id = $('#detailID').val();
+            // console.log(id);
+
+            $.ajax({
+                type: "DELETE",
+                url: "deleteCustomer/"+id,
+                error: function (response) {
+                    console.log(response);
+                },
+                success: function (response) {
+                    console.log(response);
+                    $('#modal-detail').modal('hide');
+
+                    var attr = $('#detailRow').val();
+                    dtable.row(attr).remove().draw();
+                }
+            });
+        });
+});
+</script>
 @endsection

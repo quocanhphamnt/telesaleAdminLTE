@@ -5,6 +5,11 @@ php artisan migrate:fresh (làm mới lại database phpMyAdmin)
 php artisan migrate:refresh --path=/database/migrations/fileName.php
 php artisan make:controller controllerName (tạo khung điều khiển)
 php artisan make:middleware middlewareName (tạo bộ kiểm tra)
+php artisan make:factory factoryName --model=tableName (tạo bộ data giả ngẫu nhiên vào table)
+php artisan datatables:make datatablesName (tạo datatables)
+php artisan tinker (chạy fake factory)
+Item::factory()->count(500)->create()
+
 php artisan serve (chạy localhost)
 
 php artisan cache:clear

@@ -17,6 +17,7 @@ class Customer extends Model
         'address',
         'describe',
         'region',
+        'gender',
         'id_group',
         'id_status',
     ];
