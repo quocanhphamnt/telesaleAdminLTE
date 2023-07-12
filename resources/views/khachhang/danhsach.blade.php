@@ -76,7 +76,7 @@
                             <h3 class="card-title">Danh sách tổng</h3>
                         </div>
                         <div class="card-body">
-                            <table id="customerList" class="table table-bordered table-hover">
+                            <table id="customerList" class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Tên khách hàng</th>
@@ -86,7 +86,6 @@
                                         <th>Người phụ trách</th>
                                         <th>Trạng thái</th>
                                         <th>Ngày tạo</th>
-                                        <th data-orderable="false"></th>
                                         <th data-orderable="false"></th>
                                     </tr>
                                 </thead>
@@ -101,14 +100,13 @@
                                             <td>{{$item->status}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td>
-                                                <button type="button" class="btn btn-tool editor" value="{{$item->id}}" data-toggle="modal" data-target="#modal-detail" data-id="{{$loop->index}}">
+                                                <button type="button" class="btn btn-info editor" value="{{$item->id}}" data-toggle="modal" data-target="#modal-detail" data-id="{{$loop->index}}">
                                                     <i class="fas fa-edit"></i>
-                                                    Edit
+                                                    Chi tiết
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-success mx-1 toastsPhone" value="{{$item->id}}">
+                                                <button class="btn btn-success mx-1" value="{{$item->id}}">
                                                     <i class="fas fa-phone"></i>
+                                                    Gọi
                                                 </button>
                                             </td>
                                         </tr>
@@ -270,7 +268,7 @@
                                                                 @endforeach
                                                             </select>
                                                             <label>Tỉnh thành</label>
-                                                            <select class="form-control" id="detailName"id="detailRegion">
+                                                            <select class="form-control" id="detailRegion">
                                                                 @foreach ($region as $item)
                                                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                                                 @endforeach
@@ -450,8 +448,14 @@ $( document ).ready(function() {
                         response.group.name,
                         response.status.name,
                         response.customer.created_at,
-                        '<button type="button" class="btn btn-tool editor" value="'+response.customer.id+'" data-toggle="modal" data-target="#modal-detail" data-id="'+dtable.rows().count()+'"><i class="fas fa-edit"></i>Edit</button>',
-                        '<button class="btn btn-success mx-1 toastsPhone" value="'+response.customer.id+'"><i class="fas fa-phone"></i></button>',
+                        '<button type="button" class="btn btn-info editor" value="'+response.customer.id+'" data-toggle="modal" data-target="#modal-detail" data-id="'+dtable.rows().count()+'">\
+                            <i class="fas fa-edit"></i>\
+                            Chi tiết\
+                        </button>\
+                        <button class="btn btn-success mx-1 toastsPhone" value="'+response.customer.id+'">\
+                            <i class="fas fa-phone"></i>\
+                            Gọi\
+                        </button>',
                     ]).draw();
                 }
             }
@@ -471,9 +475,7 @@ $( document ).ready(function() {
             },
             success: function (response) {
                 console.log(response);
-                if(response.status == 404) {
-
-                } else {
+                if(response.status == 200) {
                     $('#detailID').val(response.customer.id);
                     $('#detailRow').val(attr);
                     $('#detailName').val(response.customer.name);
@@ -540,8 +542,14 @@ $( document ).ready(function() {
                     temp[4] = response.user.name;
                     temp[5] = response.status.name;
                     temp[6] = response.customer.created_at;
-                    temp[7] = '<button type="button" class="btn btn-tool editor" value="'+response.customer.id+'" data-toggle="modal" data-target="#modal-detail" data-id="'+attr+'"><i class="fas fa-edit"></i>Edit</button>',
-                    temp[8] = '<button class="btn btn-success mx-1 toastsPhone" value="'+response.customer.id+'"><i class="fas fa-phone"></i></button>';
+                    temp[7] = '<button type="button" class="btn btn-info editor" value="'+response.customer.id+'" data-toggle="modal" data-target="#modal-detail" data-id="'+attr+'">\
+                                    <i class="fas fa-edit"></i>\
+                                    Chi tiết\
+                                </button>\
+                                <button class="btn btn-success mx-1" value="'+response.customer.id+'">\
+                                    <i class="fas fa-phone"></i>\
+                                    Gọi\
+                                </button>';
                     dtable.row(attr).data(temp).draw(false);
                 }
             }
@@ -549,25 +557,25 @@ $( document ).ready(function() {
     });
 
     $(document).on('click', '#deleteCustomer', function(e) {
-            e.preventDefault();
-            var id = $('#detailID').val();
-            // console.log(id);
+        e.preventDefault();
+        var id = $('#detailID').val();
+        // console.log(id);
 
-            $.ajax({
-                type: "DELETE",
-                url: "deleteCustomer/"+id,
-                error: function (response) {
-                    console.log(response);
-                },
-                success: function (response) {
-                    console.log(response);
-                    $('#modal-detail').modal('hide');
+        $.ajax({
+            type: "DELETE",
+            url: "deleteCustomer/"+id,
+            error: function (response) {
+                console.log(response);
+            },
+            success: function (response) {
+                console.log(response);
+                $('#modal-detail').modal('hide');
 
-                    var attr = $('#detailRow').val();
-                    dtable.row(attr).remove().draw();
-                }
-            });
+                var attr = $('#detailRow').val();
+                dtable.row(attr).remove().draw();
+            }
         });
+    });
 });
 </script>
 @endsection

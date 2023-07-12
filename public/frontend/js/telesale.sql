@@ -390,6 +390,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender` bigint(20) UNSIGNED DEFAULT NULL,
   `id_role` bigint(20) UNSIGNED DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -401,13 +402,13 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `password`, `email`, `phone`, `address`, `id_role`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Lập Trình Viên', '$2y$10$Bw6.r/3ji48.rWcMbqFuLuavJXpgCEzj7K9CzQFbU4WXu7dP8ZtC6', 'admin', NULL, NULL, 1, NULL, NULL, '2023-07-11 01:38:43', '2023-07-11 01:38:43'),
-(2, 'Trưởng Phòng 1', '$2y$10$T5WdBC81tX534C9xQJMTHuhfTIHkUPlaW1vNMa2MpFSTWaKG1YuZm', 'leader1', NULL, NULL, 2, NULL, NULL, '2023-07-11 01:40:29', '2023-07-11 01:40:29'),
-(3, 'Trưởng Phòng 2', '$2y$10$3nBVMjjBKQ0BkQmTLOAnWOjg8z92342jKC59oDxy7SpYOuzT9pD9a', 'leader2', NULL, NULL, 2, NULL, NULL, '2023-07-11 01:41:04', '2023-07-11 01:41:04'),
-(4, 'Nhân viên 1', '$2y$10$Q4pR6KDwXyF3xDGJmGO2suLlN33uWrObHB8aGckOf2E.scH/jPz/q', 'staff1', NULL, NULL, 3, NULL, NULL, '2023-07-11 01:42:18', '2023-07-11 01:42:18'),
-(5, 'Nhân viên 2', '$2y$10$xEfqwJgshWH4E.9tEIdWTu0hM.z3/KcdAprJE0j.Bc1vwFP8UfQg2', 'staff2', NULL, NULL, 3, NULL, NULL, '2023-07-11 01:42:41', '2023-07-11 01:42:41'),
-(6, 'Nhân viên 3', '$2y$10$pmDjWgo7zLPThF4efM0.1.mi1l9EtfMV9biX8SEDXF.fD582Ne086', 'staff3', NULL, NULL, 3, NULL, NULL, '2023-07-11 01:43:24', '2023-07-11 01:43:24');
+INSERT INTO `users` (`id`, `name`, `password`, `email`, `phone`, `address`, `gender`, `id_role`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Lập Trình Viên', '$2y$10$Bw6.r/3ji48.rWcMbqFuLuavJXpgCEzj7K9CzQFbU4WXu7dP8ZtC6', 'admin', NULL, NULL, 1, 1, NULL, NULL, '2023-07-11 01:38:43', '2023-07-11 01:38:43'),
+(2, 'Trưởng Phòng 1', '$2y$10$T5WdBC81tX534C9xQJMTHuhfTIHkUPlaW1vNMa2MpFSTWaKG1YuZm', 'leader1', NULL, NULL, 2, 2, NULL, NULL, '2023-07-11 01:40:29', '2023-07-11 01:40:29'),
+(3, 'Trưởng Phòng 2', '$2y$10$3nBVMjjBKQ0BkQmTLOAnWOjg8z92342jKC59oDxy7SpYOuzT9pD9a', 'leader2', NULL, NULL, 1, 2, NULL, NULL, '2023-07-11 01:41:04', '2023-07-11 01:41:04'),
+(4, 'Nhân viên 1', '$2y$10$Q4pR6KDwXyF3xDGJmGO2suLlN33uWrObHB8aGckOf2E.scH/jPz/q', 'staff1', NULL, NULL, 2, 3, NULL, NULL, '2023-07-11 01:42:18', '2023-07-11 01:42:18'),
+(5, 'Nhân viên 2', '$2y$10$xEfqwJgshWH4E.9tEIdWTu0hM.z3/KcdAprJE0j.Bc1vwFP8UfQg2', 'staff2', NULL, NULL, 1, 3, NULL, NULL, '2023-07-11 01:42:41', '2023-07-11 01:42:41'),
+(6, 'Nhân viên 3', '$2y$10$pmDjWgo7zLPThF4efM0.1.mi1l9EtfMV9biX8SEDXF.fD582Ne086', 'staff3', NULL, NULL, 2, 3, NULL, NULL, '2023-07-11 01:43:24', '2023-07-11 01:43:24');
 
 -- --------------------------------------------------------
 

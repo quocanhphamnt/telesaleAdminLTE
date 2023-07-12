@@ -115,26 +115,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="calendar" class="nav-link">
-                            <i class="nav-icon fas fa-calendar-alt"></i>
-                                <p>
-                                Lịch
-                                <span class="badge badge-danger right">1</span>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="mail" class="nav-link">
-                            <i class="nav-icon far fa-envelope"></i>
-                            <p>
-                                Mail
-                                <span class="badge badge-info right">6</span>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="javascript:;" class="nav-link">
+                    <li class="nav-item {{ (Request::is('quanly') || Request::is('quanly/*') ? 'menu-open' : '') }}">
+                        <a href="javascript:;" class="nav-link {{ (Request::is('quanly') || Request::is('quanly/*') ? 'active' : '') }}">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Quản lý
@@ -143,13 +125,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="employees" class="nav-link">
+                                <a href="{{ route('users') }}" class="nav-link {{ Route::is('users') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Nhân viên</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="groups" class="nav-link">
+                                <a href="{{ route('groups') }}" class="nav-link {{ Route::is('groups') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Nhóm</p>
                                 </a>

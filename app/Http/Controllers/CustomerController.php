@@ -91,7 +91,7 @@ class CustomerController extends Controller
         } else {
             return response()->json([
                 'status'=>404,
-                'message'=>'Khách hàng không tìm thấy',
+                'message'=>'Không tìm thấy',
             ]);
         }
     }
@@ -145,7 +145,7 @@ class CustomerController extends Controller
             } else {
                 return response()->json([
                     'status'=>404,
-                    'message'=>'Khách hàng không tìm thấy',
+                    'message'=>'Không tìm thấy',
                 ]);
             }
         }
